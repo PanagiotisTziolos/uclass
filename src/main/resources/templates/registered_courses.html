@@ -1,0 +1,48 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/registered_courses.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+
+                <div id="registered_courses">
+                    <div class="title">Registered Courses</div>
+
+                    <div id="registered_courses_table">
+                        <table>
+                            <tr id="table_titles">
+                                <th>Course</th>
+                                <th>Professor</th>
+                                <th class="centered_col">Semester</th>
+                                <th class="centered_col">Passed</th>
+                            </tr>
+                            
+                            <div th:each="courseMap : ${courses.entrySet()}">
+                                <tr>
+                                    <td>
+                                        <a th:href="@{/courses/{course}(course=${courseMap.getKey().getName()})}" th:text="${courseMap.getKey().getName()}"></a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{/professors/{professor}(professor=${courseMap.getKey().getProfessor().getName()})}" th:text="${courseMap.getKey().getProfessor().getName()}"></a>
+                                    </td>
+                                    <td class="centered_col" th:text="${courseMap.getKey().getSemester().getId()}"></td>
+                                    <td class="centered_col" th:text="${courseMap.getValue()}"></td>
+                                </tr>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/new_announcement.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+    
+                <div id="announcement">
+                    <form method="post" th:action="@{/make_announcement}">
+
+                        <div id="title_button_container">
+                            <div class="title">Announcement</div>
+
+                            <div id="event_button">
+                                <button>Announce</button>
+                            </div>
+                        </div>
+
+                        <div id="message">
+                            <div id="info">
+                                <div> 
+                                    <span class="info_title">By: </span>
+                                    <span th:text="${name}"></span>
+                                </div>
+
+                                <div> 
+                                    <span class="info_title">At: </span>
+                                    <span th:text="${fullDate}"></span>
+                                </div>
+                            </div>
+
+                            <div id="content_container">
+                                <div id="message_title">
+                                    <input type="text" placeholder="Title" th:name="announcementTitle">
+                                </div>
+                                
+                                <div id="message_content">
+                                    <textarea placeholder="Message" th:name="announcementMessage"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="create_event_container">
+                            <div id="create_event_checkbox">
+                                <input type="checkbox" th:name="createEvent" th:onclick="enableToggle()">
+                                <div class="info_title">Create Event</div>
+                            </div>
+                            
+                            <div id="date_input">
+                                <input type="text" placeholder="Event Description" th:name="eventMessage">
+                                <input type="date" th:name="eventDate">
+                            </div>
+                        </div>
+
+                    <form>
+
+                    <div id="empty_fields_error" th:if="${empty_fields}" th:text="${error_message}"></div>
+
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
+
+<script>
+    const createEvent = document.querySelector('input[type=checkbox]');
+    
+    const createEventContent = document.getElementById('date_input');
+
+    enableToggle();
+
+    function enableToggle() {
+        if (createEvent.checked) {
+            for (const child of createEventContent.children) {
+                child.disabled = false;
+            }
+        } else {
+            for (const child of createEventContent.children) {
+                child.disabled = true;
+            }
+        }
+    }
+</script>

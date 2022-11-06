@@ -1,0 +1,80 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/course_info.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+    
+                <div id="course">
+                    <div class="container">
+                        <div id="message_title_register_container">
+                            <span id="message" th:if="${message != null}" th:text="${message}"></span>
+
+                            <div id="title_register_container">
+                                <div class="title">Course</div>
+                                
+                                <div sec:authorize="hasRole('STUDENT')" th:if="${!registeredForCourse}">
+                                    <form method="post" th:action="@{/register}">
+                                        <input type="hidden" th:value="${course.getId()}" th:attr="name='courseId'">
+                                        <button id="button">Register</button>
+                                    </form>
+                                </div>
+
+                                <div sec:authorize="hasRole('STUDENT')" th:unless="${!registeredForCourse}">
+                                    <form method="post" th:action="@{/unregister}">
+                                        <input type="hidden" th:value="${course.getId()}" th:attr="name='courseId'">
+                                        <button id="button">Unregister</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div> 
+                                <span class="course_title">Name: </span>
+                                <span th:text="${course.getName()}"></span>
+                            </div>
+
+                            <div>
+                                <span class="course_title">Professor: </span>
+                                <a th:href="@{/professors/{professor}(professor=${course.getProfessor().getName()})}"
+                                    th:text="${course.getProfessor().getName()}">
+                                </a>
+                            </div>
+
+                            <div>
+                                <span class="course_title">Semester: </span>
+                                <span th:text="${course.getSemester().getId()}"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <span class="title">Announcements</span>
+                        
+                        <table class="content">
+                            <div th:each="announcement : ${course.getProfessor().getAnnouncements()}">
+                                <tr>
+                                    <td>
+                                        <a th:href="@{/announcement{announcement}(announcement=${announcement.getId()})}" 
+                                             th:text="${announcement.getTitle()}"></a>
+                                    </td>
+                                </tr>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

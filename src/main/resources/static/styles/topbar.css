@@ -1,0 +1,33 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#topbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid gray;
+}
+
+#topbar .item {
+    padding: 13px 20px;
+    padding-left: 20px;
+    border-left: 1px solid gray;
+}
+
+#topbar .item a {
+    color: rgb(0, 0, 0);
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+#topbar .item #logout_image {
+    background-image: url( '/images/power.svg' );
+}

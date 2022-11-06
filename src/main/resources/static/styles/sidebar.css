@@ -1,0 +1,118 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(19, 20,20);
+}
+
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(76, 71, 71, 0.497);
+    width: 240px;
+    border-radius: 5px;
+    height: 100%;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav #logo {
+    width: 100%;
+}
+
+nav #logo img {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+/***************** SEARCHBAR ***********************/
+nav #searchbar_container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: 100px;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    align-items: center;
+}
+
+nav #searchbar_container #searchbar {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+nav #searchbar #search {
+    width: 100%;
+    padding: 5px 30px;
+    border-radius: 5px;
+    border: none;
+    margin: 0 1px;
+    position: relative;
+}
+
+nav #searchbar #searchButton_container {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    margin: 0px 5px;
+}
+
+nav #searchbar #searchButton {
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+
+
+/***************** SIDEBAR OPTIONS ***********************/
+nav #options {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+nav #options .category {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+nav #options .category_title {
+    font-size: 14pt;
+    padding: 10px 20px;
+    border-bottom: 2px solid white;
+    color: rgb(175, 170, 170);
+}
+
+nav #options .category_title:hover {
+    background-color: rgb(236, 236, 236);
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav .subcategory {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    padding: 10px 40px;
+    font-size: 10pt;
+    border-bottom: 1px solid white;
+}
+
+.option:hover {
+    background-color: rgb(167, 164, 164);
+    color: black;
+}

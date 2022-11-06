@@ -1,0 +1,159 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(19, 20,20);
+}
+
+#nav-main {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+}
+
+
+/***************** MAIN *****************************/
+main {
+    width: 560px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+#main_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/***************** COMMON *****************************/
+.row {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 40px;
+}
+
+.title {
+    font-size: 17pt;
+    color: rgb(71, 66, 66);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+/***************** COURSES & CALENDAR *****************/
+#row1-courses-calendar {
+    justify-content: space-between;
+}
+
+#row1-courses-calendar #courses_container {
+    display: flex;
+    flex-direction: column;
+}
+
+#row1-courses-calendar #courses_container #courses {
+    height: 210px; 
+    border: 2px solid gray;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+#row1-courses-calendar #courses_container #courses .course {
+    border-bottom: 2px solid lightgray;
+    height: 70px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+}
+
+#row1-courses-calendar #courses_container #courses .course a {
+    text-decoration: none;
+    color: gray;
+}
+
+#row1-courses-calendar #courses_container a {
+    text-decoration: none;
+    color: gray;
+}
+
+/***************** BUTTONS *****************/
+#main_content .next_previous_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+#main_content .next_previous_buttons button {
+    border: none;
+    color: gray;
+    font-size: 12pt;
+    background-color: inherit;
+}
+
+#main_content .next_previous_buttons button:disabled {
+    color: darkgray;
+}
+
+#main_content .next_previous_buttons button:hover:enabled {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/***************** ANNOUNCEMENTS *****************/
+#row2-announcements {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 40px;
+}
+
+#row2-announcements #announcements_container {
+    display: flex;
+    flex-direction: column;
+    border: 1px rgb(88, 86, 86) solid;
+    height: 220px;
+}
+
+#row2-announcements .announcement {
+    margin: 10px 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+#row2-announcements .announcement a {
+    font-size: 12pt;
+    text-decoration: none;
+    color: gray;
+}
+
+#row2-announcements .announcement .writter {
+    color: rgb(0, 0, 0);
+    font-size: 10pt;
+    margin: 0 20px;
+}
+
+
+/***************** PERSONAL INFORMATION *****************/
+#row3-info {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 40px;
+}
+
+#row3-info #info_container {
+    display: flex;
+    flex-direction: column;
+    border: 1px rgb(88, 86, 86) solid;
+}
+
+#row3-info span {
+    padding: 10px 14px;
+}

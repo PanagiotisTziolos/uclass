@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/calendar.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div id="calendar_container">
+            <span class="title" th:text="${fullDate}"></span>
+        
+            <div id="calendar">
+                <div class="day week">M</div>
+                <div class="day week">T</div>
+                <div class="day week">W</div>
+                <div class="day week">T</div>
+                <div class="day week">F</div>
+                <div class="day week">S</div>
+                <div class="day week">S</div>
+                <div th:each="day : ${numberOfMonthDays}">
+                    
+                    <div class="day" th:classappend="${day == intDay} ? current_day : ''">
+
+                        <div th:if="${day > 0}" th:text="${day}"></div>
+                    
+                        <div th:unless="${day > 0}"></div>
+                    
+                        <div class="day_event"
+                                th:id="'day' + ${day}" 
+                                th:if="${eventsOfMonth.containsKey(day)}"
+                                th:onmouseover="showDescription([[('day' + ${day})]])" 
+                                th:onmouseout="hideDescription([[('day' + ${day})]])">
+                    
+                            <div class="event_description">
+                                <ul>
+                                    <div th:each="event : ${eventsOfMonth.get(day)}">
+                                        <li th:text="${event.getDescription()}"></li>
+                                    </div>
+                                </ul>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </div>
+    </body>
+</html>
+
+
+<script th:inline="javascript">
+
+    function showDescription(eventId) {
+        const eventDesc = document.getElementById(eventId);
+
+        console.log(eventDesc.children.length);
+
+        eventDesc.children[0].style.display = "flex";
+    }
+
+    function hideDescription(eventId) {
+        const eventDesc = document.getElementById(eventId);
+
+        eventDesc.children[0].style.display = "none";
+    }
+
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>U Class</title>
+        <link href="/styles/login.css" rel="stylesheet" />
+    </head>
+    
+    <body>
+        <div id="nav-main">
+            <main>
+                <div id="background">
+                    <img src="/images/bg.jpg" alt="bg" />
+                </div>
+
+                <div id="form_container">
+                    <span id="wrong_credentials_error" th:if="${param.error}">Username-Password combination is wrong</span>
+
+                    <h1> Sign In </h1>
+
+                    <form method="post" th:action="@{/login}">
+                        <div id="inputs">
+                            <input type="text" name="username">
+                            <input type="password" name="password">
+                        </div>
+
+                        <div id="button_container">
+                            <button>Sign In</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

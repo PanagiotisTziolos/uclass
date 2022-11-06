@@ -1,0 +1,63 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/courses.css" rel="stylesheet" />
+        <script src="/scripts/functions.js"></script>
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+
+                    <div id="courses">
+                        <div class="title">Courses</div>
+    
+                        <div id="courses_semesters_container">
+
+                            <div th:each="semester : ${semesters}">
+
+                            <div class="courses_semesters">
+                                <div class="semester" th:text="Semester + ' ' + ${semester.getId()}"></div>
+                                    
+                                <div class="courses">
+                                    <table>
+                                        <tr id="table_titles">
+                                            <th>Courses</th>
+                                            <th>Professors</th>
+                                        </tr>
+                                            
+                                        <div th:each="course : ${semester.getCourses()}">
+                                            <tr>
+                                                <td>
+                                                    <a th:href="@{courses/{course}(course=${course.getName()})}" th:text="${course.getName()}"></a>
+                                                </td>
+
+                                                <td>
+                                                    <a th:href="@{professors/{professor}(professor=${course.getProfessor().getName()})}" th:text="${course.getProfessor().getName()}">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
+
+<script>
+    removeLastBorder("courses_semesters");
+
+    hideShow("courses_semesters", '.semester', '.courses');
+</script>

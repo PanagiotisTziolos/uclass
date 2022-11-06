@@ -1,0 +1,125 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(19, 20,20);
+}
+
+#nav-main {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+}
+
+main {
+    width: 560px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 20pt;
+    color: rgb(71, 66, 66);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+
+/***************** MAIN *****************************/
+main #professor {
+    height: 100%;
+    color: rgb(71, 66, 66);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 40px;
+}
+
+.container {
+    margin-bottom: 50px;
+}
+
+.content {
+    padding: 10px 20px;
+}
+
+main #professor .container .content div {
+    padding-top: 10px;
+}
+
+main #professor .container .content .info_title {
+    font-size: 12pt;
+    color: rgb(71, 66, 66);
+    font-weight: bold;
+}
+
+
+table {
+    width: 100%;
+    border-spacing: 0px;
+}
+
+table a {
+    text-decoration: none;
+    color: gray;
+}
+
+th {
+    text-align: left;
+    padding: 10px 15px;
+    border-bottom: 2px solid gray;
+}
+
+td {
+    padding: 10px 15px;
+    border-bottom: 1px solid gray;
+    word-break: break-all;
+}
+
+.centered_col {
+    text-align: center;
+}
+
+/***************** BOTTOM_BUTTONS ***************/
+
+#professor .container #announcements_bottom_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+#professor .container #announcements_bottom_buttons #new_announcement_button {
+    color: gray;
+    font-size: 12pt;
+    text-decoration: none;
+}
+
+#professor .container #announcements_bottom_buttons #new_announcement_button a:hover {
+    text-decoration: underline;
+}
+
+#professor .container #announcements_bottom_buttons .next_previous_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+#professor .container #announcements_bottom_buttons .next_previous_buttons button {
+    border: none;
+    color: gray;
+    font-size: 12pt;
+    background-color: inherit;
+}
+
+#professor .container #announcements_bottom_buttons .next_previous_buttons button:disabled {
+    color: darkgray;
+}
+
+#professor .container #announcements_bottom_buttons .next_previous_buttons button:hover:enabled {
+    cursor: pointer;
+    text-decoration: underline;
+}

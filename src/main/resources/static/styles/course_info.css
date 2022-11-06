@@ -1,0 +1,121 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(19, 20,20);
+}
+
+#nav-main {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+}
+
+main {
+    width: 560px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 20pt;
+    color: rgb(71, 66, 66);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+
+/***************** MAIN *****************************/
+main #course {
+    height: 100%;
+    color: rgb(71, 66, 66);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 40px;
+}
+
+.container {
+    margin-bottom: 50px;
+}
+
+.content {
+    padding: 10px 20px;
+}
+
+main #course .container .content .course_title {
+    font-size: 14pt;
+    color: rgb(71, 66, 66);
+    font-weight: bold;
+}
+
+
+table {
+    width: 100%;
+    border-spacing: 0px;
+}
+
+table a {
+    text-decoration: none;
+    color: gray;
+}
+
+th {
+    text-align: left;
+    padding: 10px 15px;
+    border-bottom: 2px solid gray;
+}
+
+td {
+    padding: 10px 15px;
+    border-bottom: 1px solid gray;
+    word-break: break-all;
+}
+
+.centered_col {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+main #course .container #title_register_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main #course .container #message_title_register_container {
+    display: flex;
+    flex-direction: column;
+}
+
+#button {
+    border: none;
+    background-color: lightgray;
+    padding:10px;
+    border-radius: 5px;
+}
+
+#button:hover {
+    background-color: darkgray;
+}
+
+#button:active  {
+    background-color: gray;
+}
+
+#message {
+    background-color: rgb(183, 248, 183);
+    color: rgb(2, 130, 2);
+    padding: 13px;
+    border-radius: 5px;
+    align-self: center;
+}

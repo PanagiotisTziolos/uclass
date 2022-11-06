@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/professors.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+    
+                <div id="professors">
+
+                    <div class="title">Professors</div>
+
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Direction</th>
+                            <th>Office</th>
+                        </tr>
+
+                        <div th:each="professor : ${professors}">
+                            <tr>
+                                <td><a th:href="@{professors/{name}(name=${professor.getName()})}" th:text="${professor.getName()}"></a></td>
+                                <td><a th:text="${professor.getSection()}"></a></td>
+                                <td th:text="${professor.getOffice()}"></td>
+                            </tr>
+                        </div>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/questions.css" rel="stylesheet" />
+        <script src="/scripts/functions.js"></script>
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+
+                <div id="questions">
+                    <div class="title">Frequently Asked Questions</div>
+
+                    <div id="questions_answers_container">
+                        <div th:each="question : ${questions}">
+                            <div class="question_answer">
+                                <div class="question">
+                                    <span th:text="${question.getContent()}"></span>
+                                </div>
+                                <div class="answer">
+                                    <span th:text="${question.getAnswer().getContent()}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
+
+<script>
+    removeLastBorder("question_answer");
+
+    hideShow("question_answer", '.question', '.answer');
+</script>

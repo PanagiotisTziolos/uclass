@@ -1,0 +1,49 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/contact.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+
+                <div id="contact">
+                    <div class="title">Contact</div>
+
+                    <div id="info_container">
+                        <div class="info">
+                            <span class="info_title">Address: </span>
+                            <span>
+                                My university<br>
+                                Utopic Land, 18233 Utopia
+                            </span>
+                        </div>
+            
+                        <div class="info">
+                            <span class="info_title">Phone number: </span>
+                            <span>210 727 0157</span>
+                        </div>
+            
+                        <div  class="info">
+                            <span class="info_title">Fax: </span>
+                            <span>210 727 0165</span>
+                        </div>
+            
+                        <div  class="info">
+                            <span class="info_title">Email: </span>
+                            <a href="mailto: uClass@university.com">uClass@university.com</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

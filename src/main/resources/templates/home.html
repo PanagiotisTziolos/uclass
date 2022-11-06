@@ -1,0 +1,100 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/home.css" rel="stylesheet" />
+        <script src="/scripts/functions.js"></script>
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+
+                <div id="main_content">
+                    <div class="row" id="row1-courses-calendar">
+                        <div id="courses_container">
+                            <span class="title">Courses</span>
+
+                            <div id="courses">
+                                <div th:each="registeredCourse : ${registeredCourses}">
+                                    <div class="course">
+                                        <a th:href="@{/courses/{course}(course=${registeredCourse.getCourse().getName()})}" 
+                                            th:text="${registeredCourse.getCourse().getName()}"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="next_previous_buttons">
+                                <div>
+                                    <form method="post" th:action="@{/previous_course_page}">
+                                        <button th:disabled="${firstCoursePage}">previous</button>
+                                    </form>
+                                </div>
+
+                                <div class="seperator">|</div>
+
+                                <div>
+                                    <form method="post" th:action="@{/next_course_page}">
+                                        <button th:disabled="${!nextCoursePageExists}">next</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div th:insert="calendar"></div>
+                    </div>
+
+                    <div class="row" id="row2-announcements">
+                        <span class="title">Announcements</span>
+                        
+                        <div id="announcements_container">
+                                <div th:each="announcement : ${announcements}">
+                                    <div class="announcement">
+                                        <a th:href="@{/announcement{announcement}(announcement=${announcement.getId()}, name=${announcement.getProfessor().getName()})}" 
+                                            th:text="${announcement.getTitle()}"></a>
+                                        <span class="writter" th:text="${announcement.getProfessor().getName()}"></span>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="next_previous_buttons">
+                            <div>
+                                <form method="post" th:action="@{/previous_announcement_page}">
+                                    <button th:disabled="${firstAnnouncementPage}">previous</button>
+                                </form>
+                            </div>
+
+                            <div class="seperator">|</div>
+
+                            <div>
+                                <form method="post" th:action="@{/next_announcement_page}">
+                                    <button th:disabled="${!nextAnnouncementPageExists}">next</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="row3-info">
+                        <span class="title">Personal Information</span>
+
+                        <div id="info_container">
+                            <span id="school">Faculty of Physics</span>
+                            <span id="name">Student: <span th:text="${studentName}"></span></span>
+                            <span id="number_of_lessons">Registered Courses: <span th:text="${registeredCoursesSize}"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
+
+<script>
+    removeLastBorder("course");
+ </script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta utf-8>
+        <title>uClass</title>
+        <link href="/styles/announcement.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div id="nav-main">
+            <div th:insert="sidebar"></div>
+
+            <main>
+                <div th:insert="topbar"></div>
+    
+                <div id="announcement">
+                    <div class="title">Announcement</div>
+
+                    <div id="message">
+                        <div id="info">
+                            <div> 
+                                <span class="info_title">By: </span>
+                                <a th:href="@{/professors/{name}(name=${announcement.getProfessor().getName()})}" 
+                                    th:text="${announcement.getProfessor().getName()}"></a>
+                            </div>
+
+                            <div> 
+                                <span class="info_title">At: </span>
+                                <span th:text="${announcement.getDate()}"></span>
+                            </div>
+                        </div>
+
+                        <div id="content_container">
+                            <div id="message_title" th:text="${announcement.getTitle()}"></div>
+                            <div id="message_content" th:text="${announcement.getContent()}"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

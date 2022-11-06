@@ -1,0 +1,83 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(19, 20,20);
+}
+
+#nav-main {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+}
+
+main {
+    width: 560px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 20pt;
+    color: rgb(71, 66, 66);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+/***************** MAIN *****************************/
+main #courses {
+    height: 100%;
+    color: rgb(71, 66, 66);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 40px;
+}
+
+main #courses #courses_semesters_container {
+    background-color: rgb(232, 228, 228);
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+main #courses #courses_semesters_container .courses_semesters {
+    border-bottom: 1px solid gray;
+    padding: 20px;
+}
+
+main #courses #courses_semesters_container .courses_semesters .semester {
+    font-weight: bold;
+    font-size: 12pt;
+    text-align: justify;
+}
+
+main #courses #courses_semesters_container .courses_semesters .courses {
+    font-size: 11pt;
+    padding: 20px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.semester:hover {
+    cursor: pointer;
+}
+
+main #courses #courses_semesters_container .courses_semesters .courses th {
+    text-align: left;
+}
+
+main #courses #courses_semesters_container .courses_semesters .courses th, td {
+    padding: 10px 15px;
+    word-wrap: break-word;
+}
+
+main #courses #courses_semesters_container .courses_semesters .courses td a {
+    text-decoration: none;
+    color: gray;
+}
